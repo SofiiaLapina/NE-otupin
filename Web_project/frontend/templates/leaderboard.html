@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Рейтинг{% endblock %}
+
+{% block content %}
+<div class="leaderboard-container">
+    <h1>Рейтинг користувачів</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Місце</th>
+                <th>Користувач</th>
+                <th>Загальні бали</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in leaderboard %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ entry.user__username }}</td>
+                    <td>{{ entry.total_score }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</div>
+{% endblock %}

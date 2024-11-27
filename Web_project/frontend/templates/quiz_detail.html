@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ quiz.name }}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+<h1>{{ quiz.name }}</h1>
+<p><strong>Категорія:</strong> {{ quiz.category.name }}</p>
+<p><strong>Рівень складності:</strong> {{ quiz.get_difficulty_display }}</p>
+<p><strong>Опис:</strong></p>
+<p>{{ quiz.description }}</p>
+<a href="{% url 'start_quiz' quiz.id %}" class="btn">Почати вікторину</a>
+{% endblock %}

@@ -1,0 +1,190 @@
+/* Шапка */
+header {
+    background-color: #4CAF50;
+    padding: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Меню навигации */
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Центрируем кнопки */
+    gap: 20px; /* Расстояние между кнопками */
+}
+
+/* Кнопки навигации */
+header nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    background-color: aliceblue;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background-color: #21867a;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Контейнер */
+.container {
+    text-align: center;
+    margin: 100px auto; /* Центрирование сверху и снизу */
+    max-width: 800px;
+    padding: 20px;
+    background-color: #f9f9f9; /* Светлый фон для блока */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок */
+h1 {
+    font-size: 3em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Описание */
+p {
+    color: #666;
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+/* Подвал */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 0.9em;
+    color: #888;
+}
+
+/* Контейнер для категорий */
+.categories-container {
+    max-width: 900px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок */
+.categories-container h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Список категорий */
+.categories-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Элемент списка (категория) */
+.categories-container ul li {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Эффекты при наведении */
+.categories-container ul li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Ссылки категорий */
+.categories-container ul li a {
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #4CAF50;
+    transition: color 0.3s ease;
+}
+
+/* Эффекты на ссылки */
+.categories-container ul li a:hover {
+    color: #21867a;
+}
+
+/* Описание категорий */
+.categories-container ul li p {
+    margin-top: 10px;
+    font-size: 1em;
+    color: #666;
+}
+/* Контейнер для рейтинга */
+.leaderboard-container {
+    max-width: 900px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок страницы */
+.leaderboard-container h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Таблица */
+.leaderboard-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Заголовки таблицы */
+.leaderboard-container table th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+/* Ряды таблицы */
+.leaderboard-container table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+    color: #555;
+}
+
+/* Зебра (чередование цветов строк) */
+.leaderboard-container table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Эффект при наведении на строку */
+.leaderboard-container table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Стили для первого столбца (место) */
+.leaderboard-container table td:first-child,
+.leaderboard-container table th:first-child {
+    text-align: center;
+    font-weight: bold;
+    color: #4CAF50;
+}

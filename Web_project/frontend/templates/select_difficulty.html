@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Вибір складності{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+<h1>Вибір рівня складності для категорії "{{ category.name }}"</h1>
+<ul>
+    {% for difficulty in difficulties %}
+        <li>
+            <a href="{% url 'quiz_list' category.id difficulty %}">
+                {{ difficulty|title }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

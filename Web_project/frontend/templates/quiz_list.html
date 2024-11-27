@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Список вікторин{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+<h1>Вікторини для категорії "{{ category.name }}" ({{ difficulty|title }})</h1>
+{% if quizzes %}
+    <ul>
+        {% for quiz in quizzes %}
+            <li>
+                <a href="{% url 'quiz_detail' quiz.id %}"><strong>{{ quiz.name }}</strong></a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Немає вікторин для цієї категорії та рівня складності.</p>
+{% endif %}
+{% endblock %}

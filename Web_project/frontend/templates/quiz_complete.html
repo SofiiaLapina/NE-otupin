@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Вікторина завершена{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+<h1>Вітаємо! Ви завершили вікторину "{{ quiz.name }}"</h1>
+<p><strong>Ваш результат:</strong> {{ score }} балів</p>
+<a href="{% url 'home' %}" class="btn">На головну</a>
+{% endblock %}

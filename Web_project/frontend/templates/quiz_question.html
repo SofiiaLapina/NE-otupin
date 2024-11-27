@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ quiz.name }} - Питання {{ question_number }}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+<h1>{{ quiz.name }}</h1>
+<p><strong>Питання {{ question_number }} із {{ total_questions }}</strong></p>
+<p>{{ question.text }}</p>
+
+<!-- Виведення помилок -->
+{% if error %}
+    <p style="color: red;">{{ error }}</p>
+{% endif %}
+
+<!-- Форма з відповідями -->
+<form id="quiz-form" method="post">
+    {% csrf_token %}
+    {% for answer in question.answers.all %}
+        <div>
+            <label>
+                <input type="radio" name="answer" value="{{ answer.id }}"> {{ answer.text }}
+            </label>
+        </div>
+    {% endfor %}
+    <button type="submit">Відповісти</button>
+</form>
+
+<!-- Таймер -->
+<p id="timer"></p>
+
+<script>
+    // Налаштування таймера
+    let timeLeft = 20; // Кількість секунд
+    const timerElement = document.getElementById('timer');
+    const form = document.getElementById('quiz-form');
+
+    // Оновлення таймера на екрані
+    const interval = setInterval(() => {
+        if (timeLeft <= 0) {
+            clearInterval(interval);
+
+            // Якщо користувач не вибрав відповідь, відправляємо форму без відповіді
+            const selectedAnswer = form.querySelector('input[name="answer"]:checked');
+            if (!selectedAnswer) {
+                alert('Час вийшов! Переходимо до наступного питання.');
+            }
+
+            // Відправляємо форму
+            form.submit();
+        } else {
+            timerElement.innerText = `Час: ${timeLeft} секунд`;
+            timeLeft--;
+        }
+    }, 1000);
+
+    // Забороняємо надсилання форми без вибраної відповіді
+    form.addEventListener('submit', (e) => {
+        const selectedAnswer = form.querySelector('input[name="answer"]:checked');
+        if (!selectedAnswer) {
+            e.preventDefault();
+            alert('Ви повинні обрати відповідь!');
+        }
+    });
+</script>
+{% endblock %}

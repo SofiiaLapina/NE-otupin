@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Реєстрація{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+<h1>Реєстрація</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Зареєструватися</button>
+</form>
+{% if form.errors %}
+    <div style="color: red; margin-top: 10px;">
+        <ul>
+            {% for field, errors in form.errors.items %}
+                <li><strong>{{ field }}</strong>: {{ errors|join:", " }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+<p>Вже є аккаунт? <a href="{% url 'login' %}">Увійти</a></p>
+{% endblock %}
